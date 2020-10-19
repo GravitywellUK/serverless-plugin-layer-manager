@@ -52,7 +52,10 @@ class LayerManagerPlugin {
         this.init(sls);
         this.installLayers(sls)
       },
-      'before:deploy:deploy': () => this.transformLayerResources(sls)
+      'before:deploy:deploy': () => {
+        this.init(sls);
+        this.transformLayerResources(sls)
+      }
     };
   }
 
